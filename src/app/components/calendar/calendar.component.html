@@ -1,0 +1,98 @@
+<p>
+  calendar works!
+  <button (click)="prevMonth()">Prev</button>
+  <button (click)="nextMonth()">Next</button>
+
+  
+
+  <md-grid-list cols="{{ totalCols }}">
+
+           <md-grid-tile [style.background]="'lightgreen'" [rowspan]="7" >
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week0; let i = index;" (click)="showEvent(i, 'week0')">
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+           <md-grid-tile [style.background]="'lightred'" [rowspan]="7">
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week1" >
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+
+           <md-grid-tile [style.background]="'lightyellow'" [rowspan]="7">
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week2" >
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+
+           <md-grid-tile [style.background]="'lightgrey'" [rowspan]="7">
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week3" >
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+
+           <md-grid-tile [style.background]="'lightbrown'" [rowspan]="7">
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week4" >
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+           <md-grid-tile [style.background]="'lightbrown'" [rowspan]="7" *ngIf="week5.length>0" >
+              <md-grid-list cols="1" [style.background]="'lightgreen'" rowHeight="200px" rowWidth="100px">
+                  <md-grid-tile *ngFor="let day of week5" >
+                       <span [innerHTML]="day.date"></span>
+                       <img src="{{day.cover}}" style="height:30px">
+                  </md-grid-tile>
+                  
+              </md-grid-list>
+           </md-grid-tile>
+
+          
+           
+  </md-grid-list>
+</p>
+<div  *ngIf="currentEvent" style="display:block; margin-left:30px;z-index:10; position:absolute">
+
+    <md-card style="width:80%;">
+      <md-card-header>
+          <md-card-header-text>
+            <h2 class="md-title">{{ currentEvent.name }}</h2>
+            
+          </md-card-header-text>
+          <md-card-avatar>
+            <img class="md-user-avatar" src="{{ currentEvent.cover }}">
+          </md-card-avatar>
+      </md-card-header>
+      <!--<img src=“path/to/img.png”>-->
+      <md-card-title>
+          <md-card-title-text>
+            <h2 class="md-headline">{{ currentEvent.name }}</h2>
+            <span class="md-subhead">Subtitle</span>
+          </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+          <p><span>Name : {{ currentEvent.name }}</span></p>
+      </md-card-content>
+      <md-card-actions>
+          <button md-button (click)="hideEvent()">SHOW</button>
+      </md-card-actions>
+    </md-card>
+</div> 

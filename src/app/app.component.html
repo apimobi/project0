@@ -1,3 +1,14 @@
 <h1>
   {{title}}
 </h1>
+<nav>
+    <a (click)="goTo('/')">Home</a>
+    <a (click)="goTo('/calendar')">Calendar</a>
+    <a (click)="goTo('/newComp')">NewComp</a>
+    <a (click)="goTo('/PageNotFound')">404</a>
+  </nav>
+  <div class="container">
+	  <div class="col-sm-12" style="margin-bottom: 20px;">
+      <router-outlet></router-outlet>
+	  </div>
+  </div>    
