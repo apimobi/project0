@@ -1,4 +1,4 @@
-<p>
+<p style="position:absolute; width:100%; height:100%">
   calendar works!
   <button (click)="prevMonth()">Prev</button>
   <button (click)="nextMonth()">Next</button>
@@ -69,30 +69,32 @@
            
   </md-grid-list>
 </p>
-<div  *ngIf="currentEvent" style="display:block; margin-left:30px;z-index:10; position:absolute">
-
-    <md-card style="width:80%;">
-      <md-card-header>
-          <md-card-header-text>
-            <h2 class="md-title">{{ currentEvent.name }}</h2>
-            
-          </md-card-header-text>
-          <md-card-avatar>
-            <img class="md-user-avatar" src="{{ currentEvent.cover }}">
-          </md-card-avatar>
-      </md-card-header>
-      <!--<img src=“path/to/img.png”>-->
-      <md-card-title>
-          <md-card-title-text>
-            <h2 class="md-headline">{{ currentEvent.name }}</h2>
-            <span class="md-subhead">Subtitle</span>
-          </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-          <p><span>Name : {{ currentEvent.name }}</span></p>
-      </md-card-content>
-      <md-card-actions>
-          <button md-button (click)="hideEvent()">SHOW</button>
-      </md-card-actions>
-    </md-card>
+<div  *ngIf="currentEvent" id="overlay4">
+    <div>
+        <md-card style="width:80%;">
+        <md-card-header>
+            <md-card-header-text>
+                <h2 class="md-title">{{ currentEvent.name }}</h2>
+                
+            </md-card-header-text>
+            <md-card-avatar>
+                <img class="md-user-avatar" src="{{ currentEvent.cover }}">
+            </md-card-avatar>
+        </md-card-header>
+        <!--<img src=“path/to/img.png”>-->
+        <md-card-title>
+            <md-card-title-text>
+                <h2 class="md-headline">{{ currentEvent.name }}</h2>
+                <span class="md-subhead">Subtitle</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <p><span>Name : {{ currentEvent.name }}</span></p>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button (click)="hideEvent()">SHOW</button>
+        </md-card-actions>
+        </md-card>
+     </div>
+     <div class="background"></div>   
 </div> 

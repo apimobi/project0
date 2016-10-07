@@ -5,7 +5,9 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
+  ViewChild,
+  ElementRef
  } from '@angular/core';
 import { ParametersService } from '../../services/parameters.service';
 import { MdGridListModule } from '@angular2-material/grid-list';
@@ -21,8 +23,9 @@ import { CalendarEvent } from '../../model/calendar-event';
   host: {
      '[@inOut]': 'translation',
      '[style.display]': "'block'",
-     '[style.position]': "'absolute'",
-     '[style.width]': "'100%'"
+     '[style.position]': "'relative'",
+     '[style.width]': "'100%'",
+     '[style.height]': "'100%'"
   },
   animations: [
     trigger('inOut', [
@@ -42,7 +45,11 @@ import { CalendarEvent } from '../../model/calendar-event';
     ])
   ]
 })
+
+
 export class Calendar implements OnInit {
+
+  @ViewChild('overlay4') overlay4: ElementRef
 
   translation : string = 'left';
   pageId:number = 1;
